@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:objectboxstorage/fetch.dart';
 import 'package:objectboxstorage/data/model/model.dart';
 import 'package:objectboxstorage/data/repo/objecbox_services.dart';
+import 'package:objectboxstorage/pages/favourite.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +21,11 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    dataList = ObjectBoxServices().fetchData();
+    setState(() {
+       dataList = ObjectBoxServices().fetchData();
+          });
+   
+    
   }
 
   void refreshData() {
@@ -33,11 +38,7 @@ class _HomeState extends State<Home> {
   void toggleFavorite(UserModel user) {
     setState(() {
       user.isfavourite = !user.isfavourite;
-      // if (user.isfavourite) {
-      //   favouriteUsers.add(user);
-      // } else {
-      //   favouriteUsers.removeWhere(user.id==);
-      // }
+    
       ObjectBoxServices().updateData(user); // Update the data in ObjectBox
     });
   }
@@ -83,8 +84,12 @@ class _HomeState extends State<Home> {
                   child: const Text("Insert")),
               TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (c) => const FetchData()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (c) => FavoriteList(
+                                  objectBoxServices: ObjectBoxServices(),
+                                )));
                   },
                   child: const Text("Navigate")),
               const SizedBox(
