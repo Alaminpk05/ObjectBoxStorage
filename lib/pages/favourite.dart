@@ -45,8 +45,7 @@ class _FavoriteListState extends State<FavoriteList> {
                       widget.objectBoxServices.updateData(user); 
                       });
                      
-                     
-                      
+                      //updated
                     },
                     child: const Icon(Icons.favorite, color: Colors.red), // Always red in the favorites list
                   ),
