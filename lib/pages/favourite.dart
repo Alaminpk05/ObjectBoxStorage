@@ -5,7 +5,7 @@ import 'package:objectboxstorage/data/repo/objecbox_services.dart';
 class FavoriteList extends StatefulWidget {
   final ObjectBoxServices objectBoxServices;
 
-  const FavoriteList({Key? key, required this.objectBoxServices}) : super(key: key);
+  const FavoriteList({super.key, required this.objectBoxServices});
 
   @override
   State<FavoriteList> createState() => _FavoriteListState();
