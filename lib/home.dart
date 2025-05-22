@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
   void refreshData() {
     setState(() {
       dataList = ObjectBoxServices()
-          .fetchData(); // Re-fetch the data and update the state
+          .fetchData(); 
     });
   }
 
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
     setState(() {
       user.isfavourite = !user.isfavourite;
     
-      ObjectBoxServices().updateData(user); // Update the data in ObjectBox
+      ObjectBoxServices().updateData(user);
     });
   }
 
