@@ -28,31 +28,32 @@ class _FavoriteListState extends State<FavoriteList> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(child: Text('No favorite items found'));
           } else {
-            final users = snapshot.data!.where((user) => user.isfavourite).toList(); // Filter favorites
+            final users = snapshot.data!
+                .where((user) => user.isfavourite)
+                .toList(); // Filter favorites
             return ListView.builder(
               itemCount: users.length,
               itemBuilder: (context, index) {
                 final user = users[index];
                 return ListTile(
-                  leading: Image.asset(user.image ?? 'assets/default_image.png'),
+                  leading:
+                      Image.asset(user.image ?? 'assets/default_image.png'),
                   title: Text(user.name ?? "No Name"),
                   subtitle: Text(user.email ?? "No Email"),
                   trailing: GestureDetector(
                     onTap: () {
-
                       setState(() {
-                         user.isfavourite = false; // Remove from favorites
-                      widget.objectBoxServices.updateData(user); 
+                        user.isfavourite = false; // Remove from favorites
+                        widget.objectBoxServices.updateData(user);
                       });
-                     
+
                       //updated
                     },
-                    child: const Icon(Icons.favorite, color: Colors.red), // Always red in the favorites list
+                    child: const Icon(Icons.favorite,
+                        color: Colors.red), // Always red in the favorites list
                   ),
                 );
               },
-
-
             );
           }
         },
@@ -61,9 +62,7 @@ class _FavoriteListState extends State<FavoriteList> {
   }
 }
 
-
-
-
-
 /// added line 1 in pk
-
+/// added line 2 in pk
+/// added line 3 in pk
+/// added line 4 in pk
