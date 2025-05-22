@@ -39,13 +39,13 @@ class _FavoriteListState extends State<FavoriteList> {
                   subtitle: Text(user.email ?? "No Email"),
                   trailing: GestureDetector(
                     onTap: () {
-                      
+
                       setState(() {
                          user.isfavourite = false; // Remove from favorites
                       widget.objectBoxServices.updateData(user); 
                       });
                      
-                      // Update ObjectBox
+                     
                       
                     },
                     child: const Icon(Icons.favorite, color: Colors.red), // Always red in the favorites list
